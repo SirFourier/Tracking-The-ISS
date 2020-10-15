@@ -1,0 +1,16 @@
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background: rgb(59,6,6);
+    background: linear-gradient(47deg, rgba(59,6,6,1) 0%, rgba(26,209,215,1) 100%);
+    font-family: Verdana;
+    color: white;
+    margin: auto;
+    text-align: center;
+    
+}
+
+#ISSmap { 
+    height: 600px;
+}
