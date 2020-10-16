@@ -3,7 +3,8 @@ Using an ISS API and leaflet.js with mapbox to display position of ISS.
 
 API used: https://api.wheretheiss.at/v1/satellites/25544
 
-[!screenshotOfWebpage]()...
+
+![screenshotOfWebsite](screenshots/ISS-Screenshot.png?raw=true)
 
 ## Learning outcomes:
 - How to use the fetch function to grab data from an API
