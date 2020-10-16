@@ -18,3 +18,7 @@ API used: https://api.wheretheiss.at/v1/satellites/25544
 - How to use await inside of async functions
 - Basic leaflet.js functionality
 - Grabbing map data from mapbox and importance of attributions
+
+## Possible future additions:
+- Seperate map into light and dark side
+- Show a visualisation of altitude and velocity
