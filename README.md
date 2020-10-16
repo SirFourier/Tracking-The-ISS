@@ -9,7 +9,7 @@ API used: https://api.wheretheiss.at/v1/satellites/25544
 - Has toggle to display path from moment of loading webpage.
 - Has toggle to center display on ISS.
 - Displays latitude and longitude as a popup binded to the marker
-- marker can be open and closed
+- Marker can be open and closed
 
 ## Learning outcomes:
 - How to use the fetch function to grab data from an API
