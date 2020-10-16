@@ -1,13 +1,9 @@
 /* Displaying position of ISS */
 
-const myMap = L.map('ISSmap').setView([0, 0], 3);
-const myMarker = L.marker([0, 0]).addTo(myMap);
-const circle = L.circle([0, 0], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 200000
-}).addTo(myMap);
+const myMap = L.map('ISSmap').setView([51.5074, -0.1278], 5);
+const myMarker = L.marker([0, 0]).addTo(myMap).bindPopup(`<b>Hello, I am the ISS!</b><br>Latitude: ${51.5074}<br>Longitude: ${-0.1278}`, {autoPan: false}).openPopup();
+const myCircle = L.circle([0, 0], {color: 'red', fillColor: '#f03', fillOpacity: 0.5, radius: 10000}).addTo(myMap);
+const polyLines = L.polyline([], {color: "red"}).addTo(myMap);
 
 function setup() {
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -26,14 +22,27 @@ async function getISS() {
     return await response.json(); 
 }
 
-async function updateMarker() {
+async function update() {
     const {latitude, longitude} = await getISS();
     myMarker.setLatLng([latitude, longitude]);
-    myMarker.bindPopup(`<b>Hello, I am the ISS!</b><br>Latitude: ${latitude}<br>Longitude: ${longitude}`).openPopup();
-    circle.setLatLng([latitude, longitude]);
-    myMap.setView([latitude, longitude]);
+    myCircle.setLatLng([latitude, longitude]);
+    myMarker.setPopupContent(`<b>Hello, I am the ISS!</b><br>Latitude: ${latitude}<br>Longitude: ${longitude}`);
+    
+    if (document.getElementById("centerOnISS").checked) {
+        myMap.flyTo([latitude, longitude]);
+    }
+
+    polyLines.addLatLng([latitude, longitude]);
+}
+
+document.getElementById("displayPath").oninput = () => {
+    if (document.getElementById("displayPath").checked) {
+        polyLines.addTo(myMap);
+    }  else {
+        polyLines.remove();
+    }
 }
 
 setup();
-updateMarker();
-setInterval(updateMarker, 2000);
+update();
+setInterval(update, 2000);
