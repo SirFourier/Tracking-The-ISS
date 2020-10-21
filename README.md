@@ -1,5 +1,5 @@
 # Tracking The International Space Station
-Using an ISS API and leaflet.js with mapbox to display position of ISS.
+Using an ISS API and leaflet.js with mapbox to display position of ISS. This was part of a video series by The Coding Train on Youtube. Link to the playlist: https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X
 
 API used: https://api.wheretheiss.at/v1/satellites/25544
 ![screenshotOfWebsite](screenshots/ISS-Screenshot.png?raw=true)
